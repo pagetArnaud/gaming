@@ -14,8 +14,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**") // Apply to all routes
                 .allowedOrigins(allowedOrigins.split(",")) // Your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
-           //     .allowCredentials(true); // For cookies / sessions if needed
+                .allowedHeaders("*")
+                .allowCredentials(true); // For cookies / sessions if needed
     }
 }
 

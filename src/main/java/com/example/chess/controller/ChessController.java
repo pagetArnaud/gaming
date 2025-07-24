@@ -15,10 +15,7 @@ import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Collection;
@@ -33,6 +30,11 @@ public class ChessController {
 
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+
+    @GetMapping("/ping")
+    public ResponseEntity<String> ping(){
+        return ResponseEntity.ok("Pong");
+    }
 
     @PostMapping("/join")
     public ResponseEntity<initDTO> joinGame(@RequestBody String playerName) {
